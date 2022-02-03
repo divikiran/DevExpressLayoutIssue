@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            
+             xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+             x:Class="DevExpressControlsTest.MainPage">
+
+     <!--xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+             xmlns:d11="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+             xmlns:w1="clr-namespace:DevExpress.XamarinForms.DataForm.Internal;assembly=DevExpress.XamarinForms.Editors"-->
+
+
+    <Frame Margin="20" Padding="2" CornerRadius="15"
+           HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+        <StackLayout>
+            <ScrollView >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <xct:Expander Grid.Row="0" IsExpanded="{Binding IsDocumentsFilterExpanded}"  Margin="10">
+                        <xct:Expander.Header>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="9*"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="9*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="Documents and Filter"
+                                           FontAttributes="Bold"
+                                           FontSize="Medium" />
+                                   
+                                </Grid>
+                                <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="0.5" BackgroundColor="Gray" />
+
+                            </StackLayout>
+                        </xct:Expander.Header>
+                        <Frame CornerRadius="10" BackgroundColor="#F0F0F0" Padding="5">
+                            <Grid ColumnSpacing="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+
+
+
+                                <dxe:TextEdit Grid.Row="0" Grid.Column="0" BoxMode="Filled" TextFontSize="Small" LabelText="User Revision Number"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Text="1"/>
+                                <dxe:TextEdit Grid.Row="0" Grid.Column="1" BoxMode="Filled" TextFontSize="Small" LabelText="Document Number"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Text="{Binding FilterDocumentNumber}"/>
+
+
+                                <dxe:TextEdit Grid.Row="1" Grid.Column="0" BoxMode="Filled" TextFontSize="Small" LabelText="Document Title"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Text="{Binding FilterTitle}"/>
+                                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" BoxMode="Filled" TextFontSize="Small" LabelText="Document Type"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  SelectedItem="{Binding DocumentType}" FilterMode="Contains"
+                                                      ItemsSource="{Binding DocumentTypes}" IsFilterEnabled="True"/>
+
+                                <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="0" BoxMode="Filled" TextFontSize="Small" LabelText="Status"
+                                                  FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  SelectedItem="{Binding SelectedStatus}"
+                                                  ItemsSource="{Binding Statuses}" IsFilterEnabled="True"/>
+
+                                <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" BoxMode="Filled" TextFontSize="Small" LabelText="Open/Closed"
+                                                  FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  SelectedItem="{Binding OpenClosed}"
+                                                  ItemsSource="{Binding OpenCloseList}" IsFilterEnabled="True"/>
+
+                                <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="0" BoxMode="Filled" TextFontSize="Small" LabelText="Created By"
+                                                  FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  SelectedItem="{Binding ProjectContact}"
+                                                  ItemsSource="{Binding ProjectContacts}" IsFilterEnabled="True"/>
+                                <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" BoxMode="Filled" TextFontSize="Small" LabelText="Company By"
+                                                  FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  SelectedItem="{Binding ProjectCompany}"
+                                                  ItemsSource="{Binding ProjectCompanys}" IsFilterEnabled="True"/>
+
+                                
+
+                                <dxe:DateEdit Grid.Row="4" Grid.Column="0" BoxMode="Filled" TextFontSize="Small" LabelText="User Revision from"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Date="{Binding RevisionDateFrom}" DisplayFormat="yyyy-MMM-dd"/>
+                                <dxe:DateEdit Grid.Row="4" Grid.Column="1" BoxMode="Filled" TextFontSize="Small" LabelText="User Revision to"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Date="{Binding RevisionDateTo}" DisplayFormat="yyyy-MMM-dd"/>
+
+                                <dxe:DateEdit Grid.Row="5" Grid.Column="0" BoxMode="Filled" TextFontSize="Small" LabelText="Valid from"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Date="{Binding ValidFrom}" DisplayFormat="yyyy-MMM-dd"/>
+                                <dxe:DateEdit Grid.Row="5" Grid.Column="1" BoxMode="Filled" TextFontSize="Small" LabelText="Valid to"
+                                                 FocusedBorderColor="Gray" FocusedLabelColor="Gray"
+                                                  Date="{Binding ValidTo}" DisplayFormat="yyyy-MMM-dd"/>
+
+
+
+                                <dxe:SimpleButton Grid.Row="6" Grid.Column="0" HeightRequest="50" 
+                                                  
+                                                  Text="Search" Margin="5"
+                                                  Command="{Binding SearchDocumentFilterCommand}"/>
+                                <dxe:SimpleButton Grid.Row="6" Grid.Column="1" HeightRequest="50"
+                                                  BackgroundColor="Red"
+                                                  Text="Clear" Margin="5"
+                                                  Command="{Binding SearchDocumentClearFilterCommand}"/>
+
+                            </Grid>
+                        </Frame>
+                    </xct:Expander>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </Frame>
+
+
+</ContentPage>
